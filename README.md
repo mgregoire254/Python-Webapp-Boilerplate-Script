@@ -23,12 +23,12 @@ Stay tuned for more updates!
 1. **Clone or Download the Project**
 
     ```bash
-    git clone [Repository Link]
+    git clone [https://github.com/mgregoire254/Python-Webapp-Boilerplate-Script]
     ```
 
     or
 
-    [Download the Code](#)
+    [Download the Code](https://github.com/mgregoire254/Python-Webapp-Boilerplate-Script/archive/refs/heads/main.zip)
 
 2. **Run the Boilerplate Generator**
 
