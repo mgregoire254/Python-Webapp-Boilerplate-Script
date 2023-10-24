@@ -1,6 +1,18 @@
-"""A script that creates a boilerplate project for Flask web applications
-    Written by Michael Gregoire
 """
+Web App Boilerplate
+====================
+
+Description:
+------------
+A utility to simplify the initialization of Flask projects. The program asks the user for their project
+name and then builds the boilerplate file structure.
+
+Developer Information:
+----------------------
+Name: Michael Gregoire
+
+"""
+
 import os
 import shutil
 from shutil import Error
