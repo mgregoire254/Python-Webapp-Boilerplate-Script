@@ -16,6 +16,7 @@ Name: Michael Gregoire
 import os
 import shutil
 from shutil import Error
+from pathlib import Path
 
 # Take user preference input
 project_name = input("What is the name of your project? ")
@@ -32,20 +33,31 @@ def make_directory(path):
 '''Function to create files'''
 def make_file(dir, name, cont, ext):
     n = name + ext
-    try:
-        with open(n, "w") as file:
-            file.writelines([cont])
-            file.close()
-        print("File %s%s created successfully!" % (name, ext))
-    except FileExistsError:
-        print("File %s%s already exists" % (name, ext))
-
-    try:
-        if dir != "":
-            shutil.move(n, dir)
-            print("File %s moved to %s", (n, dir))
-    except Error as err:
-        print("File %s already exists in %s", (n, dir))           
+    full_path = Path(dir + "/" + n)
+    if not full_path.is_file():
+        try:
+            with open(n, "w") as file:
+                file.writelines([cont])
+                file.close()
+                try:
+                    shutil.move(n, dir)
+                    print("File %s moved to %s" % (n, dir))
+                except FileNotFoundError as err:
+                    print("File %s already exists in %s" % (n, dir))
+                print("File %s%s created successfully!" % (name, ext))
+        except FileExistsError:
+            print("File %s%s already exists" % (name, ext))
+    else:
+        if name != "app":    
+            try:
+                shutil.move(n, dir)
+                print("File %s moved to %s" % (n, dir))
+            except Error as err:    
+                        print("File %s already exists in %s" % (n, dir))
+            try:
+                os.remove(n)
+            except FileNotFoundError:
+                 print("")       
 
 # Create Folder Structure
 make_directory(root_path)
