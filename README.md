@@ -23,7 +23,7 @@ Stay tuned for more updates!
 1. **Clone or Download the Project**
 
     ```bash
-    git clone [https://github.com/mgregoire254/Python-Webapp-Boilerplate-Script]
+    git clone https://github.com/mgregoire254/Python-Webapp-Boilerplate-Script
     ```
 
     or
